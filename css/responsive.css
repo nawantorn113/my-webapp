@@ -1,0 +1,675 @@
+
+/* =========================================================
+   ABG NSSKRU - RESPONSIVE LAYOUT
+   Desktop / Laptop / Tablet / Mobile
+   Character proportion protection
+========================================================= */
+
+/* ป้องกันหน้าจอล้น */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================================================
+   1. CHARACTER PROPORTION
+   รักษาสัดส่วนตัวละคร ไม่ให้ยืดหรือบีบ
+========================================================= */
+
+.mast-nurse,
+.mast-nurse-2,
+.mascot,
+.pointer-nurse,
+.gate-hero img,
+.result-hero img {
+  width: auto !important;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  flex-shrink: 0;
+  transform-origin: center bottom;
+}
+
+/* =========================================================
+   2. DESKTOP - 1200px ขึ้นไป
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .wrap {
+    width: min(100% - 40px, var(--maxw));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .masthead {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(16px, 2vw, 28px);
+  }
+
+  .mast-nurse-wrap {
+    flex-shrink: 0;
+  }
+
+  .mast-nurse {
+    height: 180px;
+  }
+
+  .mast-nurse-2 {
+    height: 180px;
+  }
+
+  .mascot {
+    height: 110px;
+  }
+
+  .pointer-nurse {
+    height: 90px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+/* =========================================================
+   3. LAPTOP - 901px ถึง 1199px
+========================================================= */
+
+@media (min-width: 901px) and (max-width: 1199px) {
+
+  :root {
+    --maxw: 100%;
+  }
+
+  body {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1120px;
+    margin: auto;
+  }
+
+  .masthead {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .crest img {
+    height: clamp(82px, 10vw, 116px);
+    width: auto;
+  }
+
+  .masthead h1 {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+  }
+
+  .mast-nurse {
+    height: clamp(128px, 15vw, 160px);
+    width: auto !important;
+    flex: 0 0 auto;
+  }
+
+  .mast-nurse-2 {
+    height: clamp(128px, 15vw, 160px);
+    width: auto !important;
+  }
+
+  .mascot {
+    height: clamp(88px, 9vw, 105px);
+    width: auto !important;
+  }
+
+  .pointer-nurse {
+    height: clamp(76px, 8vw, 90px);
+    width: auto !important;
+  }
+
+  .panel {
+    min-width: 0;
+  }
+
+}
+
+/* =========================================================
+   4. TABLET / IPAD - 641px ถึง 900px
+========================================================= */
+
+@media (min-width: 641px) and (max-width: 900px) {
+
+  body {
+    padding: 14px 14px 42px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* เรียงการ์ดเป็นแนวตั้ง */
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .interp-grid {
+    gap: 0;
+  }
+
+  .interp-grid > div {
+    display: contents;
+  }
+
+  .interp-grid .panel {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  #formCard {
+    order: 1;
+  }
+
+  #resultCard {
+    order: 2;
+  }
+
+  #careCard {
+    order: 3;
+  }
+
+  #sbarCard {
+    order: 4;
+  }
+
+  #learnCard {
+    order: 5;
+  }
+
+  /* Header */
+  .masthead {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .crest img {
+    height: clamp(76px, 12vw, 104px);
+    width: auto;
+  }
+
+  .masthead h1 {
+    font-size: clamp(1.2rem, 3vw, 1.65rem);
+    line-height: 1.3;
+  }
+
+  .masthead .sub {
+    font-size: .84rem;
+  }
+
+  .mast-nurse-wrap {
+    align-self: end;
+    margin: 0 -4px -18px 0;
+    flex-shrink: 0;
+  }
+
+  .mast-nurse {
+    height: clamp(112px, 17vw, 150px);
+    width: auto !important;
+  }
+
+  .mast-nurse-2 {
+    height: clamp(112px, 17vw, 150px);
+    width: auto !important;
+    margin-left: -18px;
+  }
+
+  /* ตัวละคร */
+  .mascot {
+    height: 95px;
+    width: auto !important;
+    right: 10px;
+    top: -24px;
+  }
+
+  .has-mascot > .panel-head {
+    padding-right: 76px;
+  }
+
+  .pointer-nurse {
+    height: 82px;
+    width: auto !important;
+    margin: -24px 0 -8px;
+  }
+
+  /* เมนู */
+  .tabs {
+    width: 100%;
+  }
+
+  .tab-btn {
+    flex: 1 1 auto;
+  }
+
+  .panel {
+    min-width: 0;
+  }
+
+}
+
+/* =========================================================
+   5. MOBILE - 640px ลงมา
+========================================================= */
+
+@media (max-width: 640px) {
+
+  body {
+    padding: 10px 10px 34px;
+    font-size: 14px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Header */
+  .masthead {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 13px 12px;
+    min-height: 112px;
+    overflow: hidden;
+  }
+
+  .crest {
+    align-self: center;
+  }
+
+  .crest img {
+    height: 66px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .masthead > div:nth-child(2) {
+    min-width: 0;
+    padding-right: 2px;
+  }
+
+  .masthead .faculty {
+    font-size: .62rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  .masthead h1 {
+    font-size: clamp(1rem, 4.5vw, 1.28rem);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .masthead .sub {
+    font-size: .7rem;
+    line-height: 1.4;
+    margin-top: 5px;
+  }
+
+  /* ตัวละครส่วนหัว */
+  .mast-nurse-wrap {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+    margin: 0;
+    opacity: .18;
+    pointer-events: none;
+  }
+
+  .mast-nurse {
+    height: 88px;
+    width: auto !important;
+  }
+
+  .mast-nurse-2 {
+    display: none !important;
+  }
+
+  .mast-nurse-wrap .welcome-say {
+    display: none;
+  }
+
+  /* แถบผู้เล่น */
+  .id-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 10px;
+    align-items: center;
+  }
+
+  .id-strip .who {
+    font-size: .82rem;
+  }
+
+  .id-strip .who .nick {
+    font-size: .95rem;
+    padding: 3px 11px;
+  }
+
+  .pointer-nurse {
+    height: 64px;
+    width: auto !important;
+    margin: -15px 0 -8px;
+  }
+
+  .id-strip .btn {
+    margin-left: auto;
+    font-size: .75rem;
+    padding: 7px 9px !important;
+  }
+
+  /* เมนู */
+  .tabs {
+    display: flex;
+    width: 100%;
+    gap: 4px;
+    padding: 4px;
+    margin-bottom: 14px;
+  }
+
+  .tab-btn {
+    flex: 1 1 46%;
+    min-width: 0;
+    padding: 9px 7px;
+    font-size: .78rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  /* การ์ด */
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .panel {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .panel-head h2 {
+    font-size: .96rem;
+  }
+
+  .panel-head .note {
+    font-size: .68rem;
+  }
+
+  /* ตัวละครประจำการ์ด */
+  .mascot {
+    height: 72px;
+    width: auto !important;
+    max-width: none;
+    top: -20px;
+    right: 7px;
+  }
+
+  .has-mascot > .panel-head {
+    padding-right: 56px;
+    min-height: 30px;
+  }
+
+  .gate-hero img {
+    height: 94px;
+    width: auto !important;
+  }
+
+  .result-hero img {
+    height: 86px;
+    width: auto !important;
+  }
+
+  .gate-hero,
+  .result-hero {
+    gap: 9px;
+  }
+
+  .bubble {
+    max-width: 220px;
+    font-size: .8rem;
+    padding: 8px 10px;
+  }
+
+  .be-s {
+    padding: 0 11px;
+  }
+
+  .be-step {
+    padding: 0 7px;
+    font-size: .76rem;
+  }
+
+  /* ช่องกรอกค่า ABG */
+  .barrow {
+    grid-template-columns:
+      minmax(68px, .9fr)
+      minmax(0, 2fr)
+      auto;
+    gap: 6px;
+    font-size: .78rem;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
+
+  .id-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Dashboard */
+  .dash-bar {
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .dash-bar .ctl {
+    min-width: 0;
+    flex: 1 1 140px;
+  }
+
+  .dash-bar select,
+  .dash-bar input[type=number] {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .arena {
+    height: min(62vh, 420px);
+  }
+
+}
+
+/* =========================================================
+   6. SMALL MOBILE - 380px ลงมา
+========================================================= */
+
+@media (max-width: 380px) {
+
+  body {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .masthead {
+    grid-template-columns: 52px minmax(0, 1fr);
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .crest img {
+    height: 56px;
+  }
+
+  .masthead .faculty {
+    font-size: .56rem;
+  }
+
+  .masthead h1 {
+    font-size: .98rem;
+  }
+
+  .masthead .sub {
+    font-size: .65rem;
+  }
+
+  .id-strip .who {
+    font-size: .76rem;
+  }
+
+  .id-strip .who .nick {
+    font-size: .86rem;
+    margin-left: 3px;
+  }
+
+  .id-strip .btn {
+    font-size: .68rem;
+  }
+
+  .mascot {
+    height: 62px;
+  }
+
+  .has-mascot > .panel-head {
+    padding-right: 48px;
+  }
+
+  .tab-btn {
+    font-size: .72rem;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+}
+
+/* =========================================================
+   7. CHARACTER ANIMATION
+   ป้องกันการยืดตัวละครระหว่าง Animation
+========================================================= */
+
+@keyframes mWave {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-3px) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(3deg);
+  }
+
+  75% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+}
+
+@keyframes mBeckon {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-4px) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(3deg);
+  }
+
+  75% {
+    transform: translateY(-3px) rotate(-3deg);
+  }
+}
+
+@keyframes mCheer {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  30% {
+    transform: translateY(-9px) rotate(-3deg);
+  }
+
+  60% {
+    transform: translateY(0) rotate(2deg);
+  }
+}
+
+@keyframes mJump {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  40% {
+    transform: translateY(-16px) rotate(-4deg);
+  }
+
+  70% {
+    transform: translateY(0) rotate(2deg);
+  }
+}
+
+/* =========================================================
+   8. ACCESSIBILITY
+   ลด Animation สำหรับผู้ใช้ที่ตั้งค่าลดการเคลื่อนไหว
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mascot,
+  .mast-nurse,
+  .pointer-nurse,
+  .gate-hero img,
+  .result-hero img,
+  .say,
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+}
