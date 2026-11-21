@@ -1636,6 +1636,37 @@ function openGate() {
   $("#gate").classList.remove("hidden");
   $("#pName").focus();
 }
+
+/* ==========================================
+   EMAIL NOTIFICATION
+   แจ้งเตือนผู้ดูแลเมื่อมีผู้เข้าใช้งาน
+========================================== */
+
+const EMAIL_NOTIFY_API = "ใส่_URL_GOOGLE_APPS_SCRIPT_EXEC";
+
+function sendUsageEmail(user) {
+  if (!EMAIL_NOTIFY_API ||
+      !EMAIL_NOTIFY_API.includes("/exec")) {
+    console.warn("ยังไม่ได้ตั้งค่า Email Notification API");
+    return;
+  }
+
+  const data = new URLSearchParams({
+    name: user.name || "ไม่ระบุชื่อ",
+    role: ROLE_TH[user.role] || user.role || "ไม่ระบุ",
+    studentId: user.sid || "-",
+    group: user.group || "-",
+    time: user.at || new Date().toISOString()
+  });
+
+  fetch(EMAIL_NOTIFY_API, {
+    method: "POST",
+    mode: "no-cors",
+    body: data
+  }).catch(error => {
+    console.error("ส่งการแจ้งเตือนอีเมลไม่สำเร็จ", error);
+  });
+}
 function logVisit() {
   if (!playerOk() || isAdmin()) return;
   try { sessionStorage.setItem("abg.visit", "1"); } catch (e) { }
