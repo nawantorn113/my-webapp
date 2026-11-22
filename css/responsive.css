@@ -1,4 +1,3 @@
-
 /* =========================================================
    ABG NSSKRU - RESPONSIVE LAYOUT
    Desktop / Laptop / Tablet / Mobile
@@ -8,6 +7,10 @@
 /* ป้องกันหน้าจอล้น */
 * {
   box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 html,
@@ -40,6 +43,34 @@ img {
   transform-origin: center bottom;
 }
 
+/* จัดป้ายคำทักทายให้อยู่เหนือหัวมาสคอต ไม่ทับหน้าและไม่ล้นขอบ */
+.mast-nurse-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-top: 42px;
+  margin-right: 0;
+}
+
+.mast-nurse-wrap .welcome-say {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  left: auto;
+  bottom: auto;
+  margin: 0;
+  white-space: nowrap;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* กันไม่ให้มาสคอตประจำการ์ดห้อยลงมาทับ .field หรือ .note */
+.has-mascot > .panel-head {
+  padding-right: 92px;
+  min-height: 48px;
+}
+
 /* =========================================================
    2. DESKTOP - 1200px ขึ้นไป
 ========================================================= */
@@ -60,18 +91,18 @@ img {
 
   .mast-nurse-wrap {
     flex-shrink: 0;
+    align-self: end;
   }
 
-  .mast-nurse {
-    height: 180px;
-  }
-
+  .mast-nurse,
   .mast-nurse-2 {
-    height: 180px;
+    height: 155px;
   }
 
   .mascot {
-    height: 110px;
+    height: 82px;
+    top: -28px;
+    right: 12px;
   }
 
   .pointer-nurse {
@@ -121,20 +152,22 @@ img {
     font-size: clamp(1.3rem, 2vw, 1.8rem);
   }
 
-  .mast-nurse {
-    height: clamp(128px, 15vw, 160px);
+  .mast-nurse,
+  .mast-nurse-2 {
+    height: clamp(118px, 13vw, 148px);
     width: auto !important;
     flex: 0 0 auto;
   }
 
-  .mast-nurse-2 {
-    height: clamp(128px, 15vw, 160px);
+  .mascot {
+    height: 78px;
     width: auto !important;
+    top: -26px;
+    right: 10px;
   }
 
-  .mascot {
-    height: clamp(88px, 9vw, 105px);
-    width: auto !important;
+  .has-mascot > .panel-head {
+    padding-right: 86px;
   }
 
   .pointer-nurse {
@@ -225,8 +258,16 @@ img {
 
   .mast-nurse-wrap {
     align-self: end;
-    margin: 0 -4px -18px 0;
+    margin: 0 0 -18px 0;
     flex-shrink: 0;
+  }
+
+  .welcome-say .ws-long {
+    display: none;
+  }
+
+  .welcome-say .ws-short {
+    display: inline;
   }
 
   .mast-nurse {
@@ -242,14 +283,14 @@ img {
 
   /* ตัวละคร */
   .mascot {
-    height: 95px;
+    height: 76px;
     width: auto !important;
     right: 10px;
-    top: -24px;
+    top: -26px;
   }
 
   .has-mascot > .panel-head {
-    padding-right: 76px;
+    padding-right: 82px;
   }
 
   .pointer-nurse {
@@ -310,7 +351,7 @@ img {
     max-width: 100%;
   }
 
-  .masthead > div:nth-child(2) {
+  .masthead > div:nth-child(3) {
     min-width: 0;
     padding-right: 2px;
   }
@@ -339,6 +380,7 @@ img {
     right: 8px;
     bottom: 0;
     margin: 0;
+    padding-top: 0;
     opacity: .18;
     pointer-events: none;
   }
@@ -433,16 +475,16 @@ img {
 
   /* ตัวละครประจำการ์ด */
   .mascot {
-    height: 72px;
+    height: 66px;
     width: auto !important;
     max-width: none;
-    top: -20px;
+    top: -22px;
     right: 7px;
   }
 
   .has-mascot > .panel-head {
-    padding-right: 56px;
-    min-height: 30px;
+    padding-right: 64px;
+    min-height: 36px;
   }
 
   .gate-hero img {
@@ -565,11 +607,12 @@ img {
   }
 
   .mascot {
-    height: 62px;
+    height: 58px;
+    top: -20px;
   }
 
   .has-mascot > .panel-head {
-    padding-right: 48px;
+    padding-right: 54px;
   }
 
   .tab-btn {
